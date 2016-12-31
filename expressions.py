@@ -25,13 +25,13 @@ def ast_to_maths_expr(tree):
     if isinstance(tree, ast.Name) :
         return Symbol(tree.id)
     if isinstance(tree, ast.BinOp) :
-        if isinstance(tree, ast.Add) :
+        if isinstance(tree.op, ast.Add) :
             action = Add
-        elif isinstance(tree, ast.Sub) :
+        elif isinstance(tree.op, ast.Sub) :
             action = Sub
-        elif isinstance(tree, ast.Mult) :
+        elif isinstance(tree.op, ast.Mult) :
             action = Mult
-        elif isinstance(tree, ast.Div) :
+        elif isinstance(tree.op, ast.Div) :
             action = Frac
         elif tree.op.__class__ in [ast.BitXor, ast.Pow] :
             action = Pow
